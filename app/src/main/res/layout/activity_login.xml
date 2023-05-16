@@ -52,14 +52,14 @@
 
                 <com.google.android.material.textfield.TextInputEditText
 
-                    android:id="@+id/username"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="40dp"
 
                     android:drawableStart="@drawable/ic_baseline_person_24"
                     android:drawablePadding="8dp"
-                    android:hint="@string/username"
+                    android:hint="@string/email"
                     android:importantForAutofill="no"
                     android:inputType="textPersonName"
                     android:padding="8dp" />
@@ -71,11 +71,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 app:boxStrokeColor="@color/lightpurple"
+                app:passwordToggleEnabled="true"
                 app:hintTextAppearance="@style/CustomHintTextAppearance">
 
                 <com.google.android.material.textfield.TextInputEditText
 
-                    android:id="@+id/pass"
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/form"
@@ -84,7 +85,7 @@
                     android:hint="@string/password"
                     android:importantForAutofill="no"
                     android:inputType="textPassword"
-                    android:drawableEnd="@drawable/pw_eye"
+
                     android:padding="8dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,13 +102,12 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/loginbtn"
+                android:id="@+id/login_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/btnshape"
                 android:fontFamily="@font/poppins_regular"
-                android:onClick="success"
                 android:text="@string/login"
                 android:textAlignment="center"
                 android:textAllCaps="false"
@@ -125,7 +125,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/poppins_regular"
-        android:onClick="loigin"
         android:padding="8dp"
         android:text="@string/not_yet_registered_sign_up"
         android:textAlignment="center"

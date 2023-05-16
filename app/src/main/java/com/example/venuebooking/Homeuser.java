@@ -32,7 +32,7 @@ public class Homeuser extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,new HomeFragment()).commit();
                         break;
                     case R.id.register:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,new RegisterFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,new BookingFragment()).commit();
                         break;
                     case R.id.contact:
                         getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,new ContactFragment()).commit();
