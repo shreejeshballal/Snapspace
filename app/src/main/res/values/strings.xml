@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">venuebooking</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="not_yet_registered_sign_up">Not yet registered? Sign up</string>
+    <string name="login">Login</string>
+    <string name="get_started">Get Started</string>
+    <string name="unlock_endless_possibilities_and_book_your_dream_venue_with_ease">“Unlock endless possibilities and book your dream venue with ease”</string>
+    <string name="signup">SignUp</string>
+    <string name="already_registered_login">Already registered ? Login</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="signin">SignIn</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>

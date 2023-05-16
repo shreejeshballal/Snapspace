@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:id="@+id/home"/>
+    <item android:title="Register"
+        android:icon="@drawable/ic_register_svgrepo_com"
+        android:id="@+id/register"/>
+    <item android:title="Contact"
+        android:icon="@drawable/ic_baseline_phone_24"
+        android:id="@+id/contact"/>
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_logout_svgrepo_com"
+        android:title="Logout" />
+
+</menu>

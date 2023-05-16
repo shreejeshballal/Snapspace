@@ -1,0 +1,46 @@
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/venuebooking/app/src/main/res/drawable/btnshape.xml" value="0.26614583333333336" />
+        <entry key="..\:/venuebooking/app/src/main/res/drawable/form.xml" value="0.26614583333333336" />
+        <entry key="..\:/venuebooking/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2520833333333333" />
+        <entry key="..\:/venuebooking/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.26614583333333336" />
+        <entry key="..\:/venuebooking/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.26614583333333336" />
+        <entry key="..\:/venuebooking/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.2520833333333333" />
+        <entry key="..\:/venuebooking/app/src/main/res/drawable/ic_correct_signal_svgrepo_com.xml" value="0.26614583333333336" />
+        <entry key="..\:/venuebooking/app/src/main/res/drawable/ic_logout_svgrepo_com.xml" value="0.2520833333333333" />
+        <entry key="..\:/venuebooking/app/src/main/res/drawable/ic_register_svgrepo_com.xml" value="0.2520833333333333" />
+        <entry key="..\:/venuebooking/app/src/main/res/drawable/ic_wrong_delete_remove_trash_minus_cancel_close_2_svgrepo_com.xml" value="0.26614583333333336" />
+        <entry key="..\:/venuebooking/app/src/main/res/drawable/searchbar.xml" value="0.26614583333333336" />
+        <entry key="..\:/venuebooking/app/src/main/res/layout/activity_homeuser.xml" value="0.1859375" />
+        <entry key="..\:/venuebooking/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/venuebooking/app/src/main/res/layout/activity_main2.xml" value="0.176" />
+        <entry key="..\:/venuebooking/app/src/main/res/layout/fragment_contact.xml" value="0.264" />
+        <entry key="..\:/venuebooking/app/src/main/res/layout/fragment_first.xml" value="0.25" />
+        <entry key="..\:/venuebooking/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/venuebooking/app/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="..\:/venuebooking/app/src/main/res/layout/fragment_second.xml" value="0.25" />
+        <entry key="..\:/venuebooking/app/src/main/res/layout/loginpage.xml" value="0.2" />
+        <entry key="..\:/venuebooking/app/src/main/res/layout/signuppage.xml" value="0.25" />
+        <entry key="..\:/venuebooking/app/src/main/res/layout/userhome.xml" value="0.264" />
+        <entry key="..\:/venuebooking/app/src/main/res/layout/userhomw.xml" value="0.2359375" />
+        <entry key="..\:/venuebooking/app/src/main/res/menu/bottomnav.xml" value="0.25" />
+        <entry key="..\:/venuebooking/app/src/main/res/menu/reservationbtn.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
+  </component>
+</project>
