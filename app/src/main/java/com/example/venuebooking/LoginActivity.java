@@ -16,7 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -90,6 +89,15 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         //Forgot password functionality
+        forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ForgotPassword forgotPassword=new ForgotPassword();
+                forgotPassword.show(getSupportFragmentManager(),"Forgotpass");
+
+            }
+        });
 
     }
 
