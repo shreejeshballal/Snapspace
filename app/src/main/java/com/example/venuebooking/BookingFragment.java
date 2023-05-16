@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class RegisterFragment extends Fragment {
+public class BookingFragment extends Fragment {
 
 
     @Override
