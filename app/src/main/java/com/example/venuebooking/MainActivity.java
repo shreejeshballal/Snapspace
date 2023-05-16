@@ -1,6 +1,8 @@
 package com.example.venuebooking;
 
 import android.content.Intent;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView not_registered;
+    TextView not_registered,forgotpass;
     Button loginbtn;
 
 
@@ -35,6 +37,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, Homeuser.class);
                 startActivity(intent);
+            }
+        });
+
+
+
+        //forgot password
+        forgotpass=findViewById(R.id.forgotpassword);
+        forgotpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                forgotpassword forgotpass=new forgotpassword();
+                forgotpass.show(getSupportFragmentManager(),"Forgotpass");
+
             }
         });
     }
