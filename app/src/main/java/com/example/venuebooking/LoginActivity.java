@@ -1,5 +1,6 @@
 package com.example.venuebooking;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
@@ -64,12 +65,17 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(LoginActivity.this, "Login " +
                                                     "successful",
                                             Toast.LENGTH_SHORT).show();
+                                    editEmail.setText("");
+                                    editPassword.setText("");
+
 
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     try {
                                         throw task.getException();
                                     } catch (Exception e) {
+                                        editEmail.setText("");
+                                        editPassword.setText("");
                                         Toast.makeText(LoginActivity.this, e.getMessage(),
                                                 Toast.LENGTH_SHORT).show();
                                     }
@@ -93,9 +99,57 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ForgotPassword forgotPassword=new ForgotPassword();
-                forgotPassword.show(getSupportFragmentManager(),"Forgotpass");
+                AlertDialog.Builder builder=new AlertDialog.Builder(LoginActivity.this);
+                View dialogView = getLayoutInflater().inflate(R.layout.forgotpassword,null);
+                FirebaseAuth auth = FirebaseAuth.getInstance();
 
+                builder.setView(dialogView);
+                AlertDialog dialog = builder.create();
+
+                dialogView.findViewById(R.id.submit).setOnClickListener(new View.OnClickListener() {
+
+                    TextInputEditText forgotEmail;
+                    String email;
+                    @Override
+                    public void onClick(View v){
+                        forgotEmail = dialogView.findViewById(R.id.forgotEmail);
+                        email = String.valueOf(forgotEmail.getText());
+
+                        if (TextUtils.isEmpty(email)) {
+                            Toast.makeText(LoginActivity.this, "Please enter an email ID", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        auth.sendPasswordResetEmail(email)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(LoginActivity.this, "Email sent successfully",
+                                                    Toast.LENGTH_SHORT).show();
+                                            forgotEmail.setText("");
+                                            dialog.dismiss();
+
+                                        }else{
+                                            try {
+                                                throw task.getException();
+                                            } catch (Exception e) {
+                                                forgotEmail.setText("");
+                                                Toast.makeText(LoginActivity.this, e.getMessage(),
+                                                        Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    }
+                                });
+                    }
+                });
+
+                dialogView.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v){
+                        dialog.dismiss();
+                    }
+                });
+            dialog.show();
             }
         });
 

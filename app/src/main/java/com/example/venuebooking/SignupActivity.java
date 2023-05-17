@@ -33,7 +33,6 @@ public class SignupActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_signup);
 
-
         //Mapping
         already_registered=findViewById(R.id.alredyregistered);
         signup = findViewById(R.id.register_btn);
@@ -80,6 +79,9 @@ public class SignupActivity extends AppCompatActivity {
                                         Toast.makeText(SignupActivity.this, "Registeration " +
                                                         "successful",
                                                 Toast.LENGTH_SHORT).show();
+                                        editPassword.setText("");
+                                        editEmail.setText("");
+                                        editConfirmPassword.setText("");
 
                                     } else {
                                         // If sign in fails, display a message to the user.
@@ -88,6 +90,9 @@ public class SignupActivity extends AppCompatActivity {
 
                                         }catch(Exception e)
                                         {
+                                            editPassword.setText("");
+                                            editEmail.setText("");
+                                            editConfirmPassword.setText("");
                                             Toast.makeText(SignupActivity.this, e.getMessage(),
                                                     Toast.LENGTH_SHORT).show();
 
