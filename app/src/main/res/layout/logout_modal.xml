@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    android:paddingTop="40dp"
-    android:paddingBottom="40dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="vertical">
@@ -17,31 +17,34 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Are you sure you want to logout?"
         android:textColor="@color/darkpurple"
+
         android:textSize="25dp"
-        android:textStyle="bold" />
+        android:textStyle="normal" />
 
     <Button
-        android:layout_marginTop="20dp"
         android:id="@+id/logout_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btnshape"
         android:fontFamily="@font/poppins_medium"
         android:text="Logout"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="18dp"/>
+        android:textSize="15dp"
+        tools:ignore="TextSizeCheck" />
 
     <Button
-        android:layout_marginTop="10dp"
         android:id="@+id/cancel_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@drawable/logoutbtns"
         android:fontFamily="@font/poppins_medium"
         android:text="Cancel"
         android:textAllCaps="false"
         android:textColor="@color/darkpurple"
-        android:textSize="18dp"/>
+        android:textSize="15dp"
+        tools:ignore="TextSizeCheck" />
 
 </LinearLayout>

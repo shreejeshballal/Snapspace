@@ -2,6 +2,10 @@ package com.example.venuebooking;
 
 import android.content.DialogInterface;
 import androidx.annotation.NonNull;
+
+import com.example.venuebooking.fragments.BookingFragment;
+import com.example.venuebooking.fragments.ContactFragment;
+import com.example.venuebooking.fragments.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
-public class Homeuser extends AppCompatActivity {
+public class BottomNavigator extends AppCompatActivity {
     FrameLayout frameLayout;
     BottomNavigationView bottomNavigationView;
 
@@ -38,7 +42,7 @@ public class Homeuser extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,new ContactFragment()).commit();
                         break;
                     case R.id.logout:
-                        AlertDialog.Builder builder = new AlertDialog.Builder(Homeuser.this);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(BottomNavigator.this);
                         View logoutModal = getLayoutInflater().inflate(R.layout.logout_modal, null);
                         builder.setView(logoutModal);
 
@@ -75,7 +79,7 @@ public class Homeuser extends AppCompatActivity {
 
     public void logout(View view) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(Homeuser.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(BottomNavigator.this);
         builder.setTitle("Logout");
         builder.setMessage("Are you sure you want to logout ?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
