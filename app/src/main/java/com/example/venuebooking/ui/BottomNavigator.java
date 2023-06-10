@@ -1,8 +1,9 @@
-package com.example.venuebooking;
+package com.example.venuebooking.ui;
 
 import android.content.DialogInterface;
 import androidx.annotation.NonNull;
 
+import com.example.venuebooking.R;
 import com.example.venuebooking.fragments.BookingFragment;
 import com.example.venuebooking.fragments.ContactFragment;
 import com.example.venuebooking.fragments.HomeFragment;
