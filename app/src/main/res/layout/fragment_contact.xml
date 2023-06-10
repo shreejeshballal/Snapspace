@@ -141,7 +141,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
                         android:layout_marginTop="8dp"
-                        android:text="gmail"
+                        android:text="Gmail"
                         android:textAlignment="center"
                         android:textColor="@color/lightpurple" />
                 </LinearLayout>
