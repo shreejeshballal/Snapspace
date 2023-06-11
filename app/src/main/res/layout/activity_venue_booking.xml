@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Venue_booking"
+    android:background="@color/white">
+
+
+    <ImageView
+
+        android:id="@+id/mainimg"
+        android:layout_width="match_parent"
+        android:layout_height="253dp"
+
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/busmantap" />
+
+    <TextView
+        android:id="@+id/venue_name"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_below="@+id/mainimg"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:gravity="center"
+        android:text="@string/bus_mantap"
+        android:textAlignment="center"
+        android:textColor="@color/darkpurple"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="392dp"
+        android:layout_height="227dp"
+        android:layout_below="@+id/venue_name"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="120dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Bus Mantap is typically equipped with various pieces of equipment to facilitate performances, presentations, and events. equipment are Sound System,Stage Lighting, Stage Backstage Area"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <Button
+
+        android:id="@+id/button2"
+        android:layout_width="139dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="-338dp"
+        android:layout_marginEnd="135dp"
+        android:layout_marginBottom="61dp"
+        android:background="@drawable/lightpurplebtn"
+        android:textSize="20dp"
+        android:text="Book Now"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="128dp"
+        android:layout_height="58dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="267dp"
+        android:layout_marginBottom="654dp"
+        android:background="@drawable/backbtnstyle"
+        android:drawableLeft="@drawable/baseline_keyboard_backspace_24"
+        android:text="Back"
+        android:textColor="@color/black" />
+</RelativeLayout>
