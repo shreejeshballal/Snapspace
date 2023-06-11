@@ -2,6 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp">
 
@@ -11,8 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-
-        android:src="@drawable/busmantap" />
+        android:src="@drawable/busmantap"
+        android:contentDescription="venue" />
 
     <TextView
         android:id="@+id/venue_name"
@@ -20,7 +24,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="Bus Mantap"
+        android:text="@string/bus_mantap"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp" />
