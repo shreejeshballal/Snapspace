@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "236144756774",
-    "project_id": "venuebooking-26aae",
-    "storage_bucket": "venuebooking-26aae.appspot.com"
+    "project_number": "528754979737",
+    "firebase_url": "https://snapspace-75ff2-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "snapspace-75ff2",
+    "storage_bucket": "snapspace-75ff2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:236144756774:android:eb3e0ab8bbf893eb5dfee7",
+        "mobilesdk_app_id": "1:528754979737:android:db5535998b54f1b49b1908",
         "android_client_info": {
           "package_name": "com.example.venuebooking"
         }
       },
       "oauth_client": [
         {
-          "client_id": "236144756774-iamc1be0psmtj8e09k0c9813pg9bt3oc.apps.googleusercontent.com",
+          "client_id": "528754979737-sei4t57uvt35hr1pf83hgr87ifjauc9a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAqekK9qSUMEvvVKwcaH_tenunyU_l8F8Q"
+          "current_key": "AIzaSyBn0tY6chcyYvN99Fhp4hcAUjYrRsTjbjg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "236144756774-iamc1be0psmtj8e09k0c9813pg9bt3oc.apps.googleusercontent.com",
+              "client_id": "528754979737-sei4t57uvt35hr1pf83hgr87ifjauc9a.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

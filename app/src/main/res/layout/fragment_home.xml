@@ -44,6 +44,7 @@
         </SearchView>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/venue_recyler"
             android:layout_width="match_parent"
             android:layout_height="566dp"
             android:layout_below="@+id/view"
