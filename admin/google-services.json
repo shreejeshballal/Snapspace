@@ -8,6 +8,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:528754979737:android:d3948c2c234f9c399b1908",
+        "android_client_info": {
+          "package_name": "com.example.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528754979737-sei4t57uvt35hr1pf83hgr87ifjauc9a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVAJzEVfEXQpM-qT0Rxd-j89HsQ9i6ttc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528754979737-sei4t57uvt35hr1pf83hgr87ifjauc9a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:528754979737:android:db5535998b54f1b49b1908",
         "android_client_info": {
           "package_name": "com.example.venuebooking"
@@ -21,7 +50,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCVAJzEVfEXQpM-qT0Rxd-j89HsQ9i6ttc"
+          "current_key": "AIzaSyBn0tY6chcyYvN99Fhp4hcAUjYrRsTjbjg"
         }
       ],
       "services": {
