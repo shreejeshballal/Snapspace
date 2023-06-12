@@ -12,6 +12,10 @@
             android:name=".ui.SignupActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.VenueDescription"
+            android:exported="true" >
+        </activity>
+        <activity
             android:name=".ui.BottomNavigator"
             android:exported="true" />
         <activity

@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.venuebooking.R;
 
-public class Venue_booking extends AppCompatActivity {
+public class VenueDescription extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

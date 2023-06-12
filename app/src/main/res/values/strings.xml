@@ -27,4 +27,8 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="bus_mantap">Bus Mantap</string>
+    <string name="back">Back</string>
+    <string name="book_now">Book Now</string>
+    <string name="bus_mantap_is_typically_equipped_with_various_pieces_of_equipment_to_facilitate_performances_presentations_and_events_equipment_are_sound_system_stage_lighting_stage_backstage_area">Bus Mantap is typically equipped with various pieces of equipment to facilitate performances, presentations, and events. equipment are Sound System,Stage Lighting, Stage Backstage Area</string>
+    <string name="mainimg">mainimg</string>
 </resources>
