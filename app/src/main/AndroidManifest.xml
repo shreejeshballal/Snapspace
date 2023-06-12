@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Venuebooking">
         <activity
+            android:name=".ui.Booking_details"
+            android:exported="false" />
+        <activity
             android:name=".ui.SignupActivity"
             android:exported="false" />
         <activity
