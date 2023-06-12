@@ -1,79 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
-    tools:context=".ui.VenueDescription"
-    android:background="@color/white">
+    android:orientation="vertical"
+    android:gravity="center">
 
 
-    <ImageView
+    <ScrollView
 
-        android:id="@+id/mainimg"
         android:layout_width="match_parent"
-        android:layout_height="253dp"
+        android:layout_height="652dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".ui.VenueDescription"
+        android:scrollbars="none">
 
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/busmantap"
-        android:contentDescription="@string/mainimg" />
 
-    <TextView
-        android:id="@+id/venue_name"
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:layout_below="@+id/mainimg"
-        android:layout_gravity="center"
-        android:layout_marginTop="0dp"
-        android:fontFamily="@font/poppins"
-        android:gravity="center"
-        android:text="@string/bus_mantap"
-        android:textAlignment="center"
-        android:textColor="@color/darkpurple"
-        android:textSize="35sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="392dp"
-        android:layout_height="227dp"
-        android:layout_below="@+id/venue_name"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="20dp"
 
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="120dp"
-        android:fontFamily="@font/poppins_regular"
-        android:text="@string/bus_mantap_is_typically_equipped_with_various_pieces_of_equipment_to_facilitate_performances_presentations_and_events_equipment_are_sound_system_stage_lighting_stage_backstage_area"
-        android:textColor="@color/lightpurple"
-        android:textSize="20dp"
-        tools:ignore="SpUsage,TextSizeCheck" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="335dp">
 
+                <Button
+                    android:id="@+id/back_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/backbtnstyle"
+                    android:drawableStart="@drawable/baseline_keyboard_backspace_24"
+                    android:padding="10dp"
+                    android:text="@string/back"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/venue_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:contentDescription="@string/mainimg"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/busmantap" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/venue_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+
+                android:textAllCaps="true"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:text="@string/bus_mantap"
+                android:textColor="@color/darkpurple"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/venue_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="@string/bus_mantap_is_typically_equipped_with_various_pieces_of_equipment_to_facilitate_performances_presentations_and_events_equipment_are_sound_system_stage_lighting_stage_backstage_area"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textAlignment="textStart"
+                android:textColor="@color/lightpurple"
+                android:textSize="20sp"
+                tools:ignore="RtlSymmetry" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
     <Button
-
-        android:id="@+id/button2"
+        android:id="@+id/book_btn"
+        android:layout_marginTop="10dp"
         android:layout_width="139dp"
-        android:layout_height="60dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="-338dp"
-        android:layout_marginEnd="134dp"
-        android:layout_marginBottom="41dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/lightpurplebtn"
         android:text="@string/book_now"
         android:textColor="@color/white"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TextSizeCheck" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="128dp"
-        android:layout_height="58dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="267dp"
-        android:layout_marginBottom="654dp"
-        android:background="@drawable/backbtnstyle"
-        android:drawableStart="@drawable/baseline_keyboard_backspace_24"
-        android:text="@string/back"
-        android:textColor="@color/black" />
-</RelativeLayout>
+</LinearLayout>
