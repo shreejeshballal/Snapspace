@@ -54,7 +54,11 @@ public class HomeFragment extends Fragment {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                            VenueModel venueModel = document.toObject(VenueModel.class);
+                                String documentId = document.getId();
+                                String name = document.getString("name");
+                                String img_url = document.getString("img_url");
+                                String desc = document.getString("desc");
+                            VenueModel venueModel = new VenueModel(name,img_url,desc,documentId);
                 venueModelList.add(venueModel);
                 venueAdpaters.notifyDataSetChanged();
 

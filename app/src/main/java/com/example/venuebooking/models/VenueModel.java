@@ -8,14 +8,25 @@ public class VenueModel {
     String img_url;
     String desc;
 
+    public String getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
+
+    String documentId;
+
     public VenueModel() {
     }
 
 
-    public VenueModel(String name, String img_url,String desc) {
+    public VenueModel(String name, String img_url,String desc,String documentId) {
         this.name = name;
         this.img_url = img_url;
         this.desc = desc;
+        this.documentId = documentId;
     }
 
     public String getName() {

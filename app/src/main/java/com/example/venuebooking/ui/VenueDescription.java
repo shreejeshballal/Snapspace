@@ -15,7 +15,7 @@ public class VenueDescription extends AppCompatActivity {
 
     ImageView venue_img;
     TextView venue_name,venue_descr;
-    String name,desc,image;
+    String name,desc,image,id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class VenueDescription extends AppCompatActivity {
         //Getting venue details from the recycler view items
         Intent intent = getIntent();
          name = intent.getStringExtra("venue_name");
+         id = intent.getStringExtra("venue_id");
          desc = intent.getStringExtra("venue_desc");
          image = intent.getStringExtra("venue_img");
         //Setting the content of the views as the received data
@@ -42,8 +43,12 @@ public class VenueDescription extends AppCompatActivity {
 
     //Function to proceed to the data and slot picking
     public void bookNow(View view) {
+
+
+
+
         Intent intent = new Intent(this, DateSlotPicker.class);
-        intent.putExtra("venue_name",name);
+        intent.putExtra("venue_id",id);
         startActivity(intent);
     }
 

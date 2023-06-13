@@ -53,6 +53,7 @@ public class VenueAdpaters extends RecyclerView.Adapter<VenueAdpaters.ViewHolder
                 intent.putExtra("venue_desc", venue.getDesc());
                 intent.putExtra("venue_img",venue.getImg_url());
                 intent.putExtra("venue_name",venue.getName());
+                intent.putExtra("venue_id",venue.getDocumentId());
                 view.getContext().startActivity(intent);
             }
         });
