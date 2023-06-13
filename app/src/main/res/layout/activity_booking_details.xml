@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Booking_details"
+    tools:context=".ui.BookingDetails"
     >
 
     <View
@@ -19,7 +19,7 @@
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:layout_marginBottom="0dp"
-        android:background="@color/lightpurple" />
+        android:background="@color/lightPurple" />
 
 
 
@@ -49,7 +49,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="358dp"
         android:layout_marginBottom="0dp"
-        android:background="@color/lightpurple"
+        android:background="@color/lightPurple"
         android:drawableStart="@drawable/back_button_white" />
 
 
@@ -105,16 +105,16 @@
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="20dp"
-            android:textSize="22dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:background="#EBEBEB"
             android:drawableStart="@color/white"
             android:drawablePadding="8dp"
-            android:hint="Estimate Conut"
+            android:hint="Estimate Count"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:padding="8dp"
+            android:textSize="22dp"
             tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.textfield.TextInputEditText
@@ -147,7 +147,7 @@
 
             android:fontFamily="@font/poppins_regular"
             android:text="Food required ?"
-            android:textColor="@color/darkpurple"
+            android:textColor="@color/darkPurple"
             android:textSize="22dp" />
 
         <CheckBox
@@ -161,7 +161,7 @@
 
             android:fontFamily="@font/poppins_regular"
             android:text="Cleaning required ?"
-            android:textColor="@color/darkpurple"
+            android:textColor="@color/darkPurple"
             android:textSize="22dp" />
 
 

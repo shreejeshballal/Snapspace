@@ -7,8 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="lightpurple">#7528B8</color>
-    <color name="darkpurple">#3F1664</color>
+    <color name="lightPurple">#7528B8</color>
+    <color name="darkPurple">#3F1664</color>
     <color name="lightpink">#F3E6FE</color>
     <color name="purple_100">#ba9fd1</color>
 

@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_regular"
         android:text="Are you sure you want to logout?"
-        android:textColor="@color/darkpurple"
+        android:textColor="@color/darkPurple"
 
         android:textSize="25dp"
         android:textStyle="normal" />
@@ -43,7 +43,7 @@
         android:fontFamily="@font/poppins_medium"
         android:text="Cancel"
         android:textAllCaps="false"
-        android:textColor="@color/darkpurple"
+        android:textColor="@color/darkPurple"
         android:textSize="15dp"
         tools:ignore="TextSizeCheck" />
 

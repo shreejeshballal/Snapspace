@@ -9,15 +9,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Venuebooking">
         <activity
-            android:name=".ui.Booking_details"
+            android:name=".ui.DateSlotPicker"
+            android:exported="false" />
+        <activity
+            android:name=".ui.BookingDetails"
             android:exported="false" />
         <activity
             android:name=".ui.SignupActivity"
             android:exported="false" />
         <activity
             android:name=".ui.VenueDescription"
-            android:exported="true" >
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ui.BottomNavigator"
             android:exported="true" />

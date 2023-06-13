@@ -22,7 +22,7 @@
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
             android:layout_marginBottom="0dp"
-            android:background="@color/lightpurple" />
+            android:background="@color/lightPurple" />
 
         <SearchView
             android:layout_width="match_parent"
@@ -58,7 +58,7 @@
                 android:id="@+id/sentbtn"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@color/darkpurple"
+                android:background="@color/darkPurple"
                 android:clickable="true">
 
                 <ImageView
@@ -81,7 +81,7 @@
             <FrameLayout
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@color/lightpurple"
+                android:background="@color/lightPurple"
                 android:clickable="true">
 
                 <ImageView
@@ -104,7 +104,7 @@
             <FrameLayout
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@color/lightpurple"
+                android:background="@color/lightPurple"
                 android:clickable="true">
 
                 <ImageView
@@ -180,7 +180,7 @@
                             android:fontFamily="@font/poppins_medium"
                             android:text="Bus Mantap"
                             android:textAlignment="center"
-                            android:textColor="@color/lightpurple"
+                            android:textColor="@color/lightPurple"
                             android:textSize="30dp" />
 
                         <TextView
