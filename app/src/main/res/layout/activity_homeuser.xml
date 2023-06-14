@@ -27,6 +27,7 @@
         app:menu="@menu/bottomnav"
         app:itemIconTint="@color/navbtncolor"
         app:itemTextColor="@color/navbtncolor"
+        app:labelVisibilityMode="labeled"
         android:background="#FFF9FF"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

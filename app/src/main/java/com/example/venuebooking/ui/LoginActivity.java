@@ -1,6 +1,7 @@
 package com.example.venuebooking.ui;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
@@ -24,11 +25,13 @@ public class LoginActivity extends AppCompatActivity {
     TextView not_registered,forgot_password;
     Button login;
     TextInputEditText editEmail,editPassword;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        
         mAuth = FirebaseAuth.getInstance();
 
         //Mapping

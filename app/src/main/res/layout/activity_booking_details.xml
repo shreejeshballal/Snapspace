@@ -6,51 +6,81 @@
     android:layout_height="match_parent"
     tools:context=".ui.BookingDetails"
     >
-
-    <View
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="94dp"
+        android:layout_height="100dp"
+        android:gravity="center_vertical"
+        android:background="@color/lightPurple">
 
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="@color/lightPurple" />
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/backbtnstyle"
+            android:drawableStart="@drawable/baseline_keyboard_backspace_24"
+            android:onClick="goBack"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+
+            android:layout_width="261dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/select_date"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.521"
+            app:layout_constraintStart_toEndOf="@+id/back_btn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.517"
+            tools:ignore="TextSizeCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <View-->
+<!--        android:id="@+id/view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="94dp"-->
+
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="0dp"-->
+<!--        android:layout_marginLeft="0dp"-->
+<!--        android:layout_marginTop="0dp"-->
+<!--        android:layout_marginEnd="0dp"-->
+<!--        android:layout_marginRight="0dp"-->
+<!--        android:layout_marginBottom="0dp"-->
+<!--        android:background="@color/lightPurple" />-->
 
 
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/view"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:fontFamily="@font/montserrat_medium"
-        android:gravity="center"
-        android:text="Enter the Details"
-        android:textColor="@color/white"
-        android:textSize="35dp" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView11"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignBottom="@+id/view"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginTop="0dp"-->
+<!--        android:layout_marginBottom="0dp"-->
+<!--        android:fontFamily="@font/montserrat_medium"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Enter the Details"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="35dp" />-->
 
-    <Button
-        android:id="@+id/back"
-        android:layout_width="53dp"
-        android:layout_height="94dp"
-        android:layout_alignBottom="@+id/view"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="358dp"
-        android:layout_marginBottom="0dp"
-        android:background="@color/lightPurple"
-        android:drawableStart="@drawable/back_button_white" />
+
 
 
     <LinearLayout
@@ -63,52 +93,67 @@
         android:gravity="fill"
         android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/view"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="#EBEBEB"
-            android:drawableStart="@color/white"
-            android:drawablePadding="8dp"
-            android:hint="Title"
-            android:importantForAutofill="no"
-            android:inputType="textPersonName"
-            android:padding="8dp"
-            android:textSize="22dp"
-            tools:ignore="TextContrastCheck" />
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/view"
+                android:textSize="22dp"
+                android:drawableStart="@drawable/baseline_calendar_today_24"
+                android:drawablePadding="8dp"
+                android:hint="Date"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:importantForAutofill="no"
+                android:padding="8dp"
+                tools:ignore="TextContrastCheck"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/date"
+
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/view"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:textSize="22dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:background="#EBEBEB"
-            android:drawableStart="@color/white"
-            android:drawablePadding="8dp"
-            android:hint="Date"
-            android:importantForAutofill="no"
-            android:inputType="textPersonName"
-            android:padding="8dp"
-            tools:ignore="TextContrastCheck" />
+            app:boxStrokeColor="@color/lightPurple"
+            app:hintTextAppearance="@style/CustomHintTextAppearance">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/view"
+
+                android:drawableStart="@drawable/baseline_title_24"
+                android:drawablePadding="8dp"
+                android:hint="Title"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:textSize="22dp"
+                 />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            app:boxStrokeColor="@color/lightPurple"
+            app:hintTextAppearance="@style/CustomHintTextAppearance">
+
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/estimate_Conut"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="#EBEBEB"
-            android:drawableStart="@color/white"
+            android:drawableStart="@drawable/baseline_supervisor_account_24"
             android:drawablePadding="8dp"
             android:hint="Estimate Count"
             android:importantForAutofill="no"
@@ -116,6 +161,16 @@
             android:padding="8dp"
             android:textSize="22dp"
             tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            app:boxStrokeColor="@color/lightPurple"
+            app:hintTextAppearance="@style/CustomHintTextAppearance">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/time_slot"
@@ -123,18 +178,14 @@
             android:layout_height="50dp"
             android:textSize="22dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-
-            android:background="#EBEBEB"
-            android:drawableStart="@color/white"
+            android:drawableStart="@drawable/baseline_access_time_24"
             android:drawablePadding="8dp"
             android:hint="Time Slot"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:padding="8dp"
             tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
             android:id="@+id/myCheckbox"

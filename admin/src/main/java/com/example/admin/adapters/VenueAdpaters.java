@@ -22,6 +22,18 @@ public class VenueAdpaters extends RecyclerView.Adapter<VenueAdpaters.ViewHolder
     private List<VenueModel> venueModelList;
     private RecyclerView recyclerView;
 
+    private OnItemclickListen lisner;
+
+
+    //interface
+    public interface OnItemclickListen{
+        void onItemClick(int position);
+    }
+
+    //method
+    public void setOnclickListener(OnItemclickListen clicklisner){
+        lisner=clicklisner;
+    }
     public VenueAdpaters(Context context, List<VenueModel> venueListList, RecyclerView recyclerView) {
         this.context = context;
         this.venueModelList = venueListList;
@@ -42,7 +54,7 @@ public class VenueAdpaters extends RecyclerView.Adapter<VenueAdpaters.ViewHolder
                 Toast.makeText(view.getContext(), "Clicked item: " + clickedItem, Toast.LENGTH_SHORT).show();
             }
         });
-    return  new ViewHolder(view);
+    return  new ViewHolder(view,lisner);
         //        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.venue_list,parent,false));
     }
 
@@ -63,11 +75,18 @@ public class VenueAdpaters extends RecyclerView.Adapter<VenueAdpaters.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView venue_img;
         TextView venue_name;
-        public ViewHolder(@NonNull View itemView) {
+        ImageView deletebtn;
+        public ViewHolder(@NonNull View itemView,OnItemclickListen lisner) {
             super(itemView);
-
+            deletebtn=itemView.findViewById(R.id.btndelete);
             venue_img = itemView.findViewById(R.id.venue_img);
             venue_name = itemView.findViewById(R.id.venue_name);
+            deletebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    lisner.onItemClick(getAdapterPosition());
+                }
+            });
         }
     }
 }
