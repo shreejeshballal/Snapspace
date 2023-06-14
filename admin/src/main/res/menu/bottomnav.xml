@@ -7,9 +7,14 @@
         android:id="@+id/home"/>
     <item android:title="Reservations"
         android:icon="@drawable/ic_register_svgrepo_com"
-        android:id="@+id/register"/>
+        android:id="@+id/reservation"/>
+
+
     <item android:title="Payments"
         android:icon="@drawable/rupee_2_svgrepo_com"
-        android:id="@+id/contact"/>
+        android:id="@+id/payment"/>
+    <item android:title="Exit"
+        android:icon="@drawable/baseline_exit_to_app_24"
+        android:id="@+id/exit"/>
 
 </menu>

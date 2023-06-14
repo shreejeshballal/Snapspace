@@ -1,5 +1,6 @@
 package com.example.venuebooking.fragments;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -28,7 +29,7 @@ import java.util.List;
 
 
 public class HomeFragment extends Fragment {
-
+    ProgressDialog progressDialog;
     RecyclerView venueRecycler;
     FirebaseFirestore db;
     ArrayList<VenueModel> venueModelList;
@@ -38,6 +39,10 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+        progressDialog=new ProgressDialog(getContext());
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
         db = FirebaseFirestore.getInstance();
 
         venueRecycler = root.findViewById(R.id.venue_recyler);
@@ -53,6 +58,8 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
+                            if(progressDialog.isShowing())
+                                progressDialog.dismiss();
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 String documentId = document.getId();
                                 String name = document.getString("name");
