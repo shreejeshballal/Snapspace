@@ -125,11 +125,12 @@ public class DateSlotPicker extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         // Document added successfully
-                        String newDocumentId = documentReference.getId();
+                        String date_id = documentReference.getId();
                         Toast.makeText(DateSlotPicker.this, "Added the date", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(DateSlotPicker.this, BookingDetails.class);
                         intent.putExtra("id",venue_id);
                         intent.putExtra("date",date);
+                        intent.putExtra("date_id",date_id);
                         startActivity(intent);
 
                     }

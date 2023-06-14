@@ -36,7 +36,7 @@ public class BookingDetails extends AppCompatActivity {
         venue_id=intent.getStringExtra("id");
         date = intent.getStringExtra("date");
         date_id = intent.getStringExtra("date_id");
-        Toast.makeText(BookingDetails.this, date_id + venue_id, Toast.LENGTH_SHORT).show();
+        Toast.makeText(BookingDetails.this, date_id , Toast.LENGTH_SHORT).show();
         allSlots.add("6-8");
         allSlots.add("8-10");
         allSlots.add("10-12");
@@ -54,17 +54,21 @@ public class BookingDetails extends AppCompatActivity {
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e);
                     Toast.makeText(BookingDetails.this, "Failed", Toast.LENGTH_SHORT).show();
-
                     return;
                 }
 
                 if (snapshot != null && snapshot.exists()) {
                     Toast.makeText(BookingDetails.this, "retrieved", Toast.LENGTH_SHORT).show();
+
                     array = (List<Integer>) snapshot.get("slots");
+                    if(array!=null)
+                    {
+                        fixSlots();
+                    }
                     Toast.makeText(BookingDetails.this, "array", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    Toast.makeText(BookingDetails.this, date_id+venue_id, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BookingDetails.this, date_id, Toast.LENGTH_SHORT).show();
 
                     Log.d(TAG, "Current data: null");
                 }
@@ -76,11 +80,15 @@ public class BookingDetails extends AppCompatActivity {
 
     private void fixSlots() {
 
-            for (int j = 0; j< Objects.requireNonNull(array).size(); j++)
-            {
+            for (int j = 0; j< Objects.requireNonNull(array).size(); j++) {
 
 
+                try {
                     allSlots.remove(array.get(j));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
 
             }
         }
