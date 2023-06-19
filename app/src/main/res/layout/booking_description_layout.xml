@@ -14,7 +14,7 @@
         android:layout_marginBottom="15dp">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/back"
             android:layout_width="70dp"
             android:layout_height="42dp"
             android:layout_marginTop="40dp"
@@ -37,6 +37,7 @@
 
 
             <TextView
+                android:id="@+id/payment"
                 android:layout_width="410dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
@@ -47,21 +48,22 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:textStyle="bold"
-                android:layout_marginTop="0dp"
+                android:id="@+id/venuename"
                 android:layout_width="match_parent"
-                android:layout_gravity="center"
-                android:padding="5dp"
                 android:layout_height="wrap_content"
-                android:textSize="35dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:padding="5dp"
                 android:text="BACK\nGROUND"
                 android:textColor="@color/white"
-                android:gravity="center"
-                android:fontFamily="@font/poppins_regular"/>
+                android:textSize="35dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_marginTop="-2dp"
-
+                android:id="@+id/slot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
@@ -95,6 +97,7 @@
                 android:layout_marginVertical="15dp"
                 app:srcCompat="@drawable/purple_logo" />
             <TextView
+                android:id="@+id/billid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="BID : 15050309503094994949"
@@ -120,6 +123,7 @@
                         android:text="EVENT:"
                         />
                     <TextView
+                        android:id="@+id/evnttitle"
                         android:layout_width="242dp"
                         android:layout_height="wrap_content"
                         android:text="Dev Host Valorant tournament by google" />
@@ -138,7 +142,7 @@
                         android:text="COST:" />
 
                     <TextView
-
+                        android:id="@+id/cost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rs500" />
@@ -159,7 +163,7 @@
                     android:text="UID:" />
 
                 <TextView
-
+                    android:id="@+id/userid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1212121212121121221" />
@@ -177,7 +181,7 @@
                     android:text="NAME:" />
 
                 <TextView
-
+                    android:id="@+id/username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ramesh" />
@@ -201,6 +205,7 @@
                         android:text="COUNT:" />
 
                     <TextView
+                        android:id="@+id/count"
                         android:layout_width="174dp"
                         android:layout_height="wrap_content"
                         android:text="5000" />
@@ -219,6 +224,7 @@
                         android:text="FOOD:" />
 
                     <TextView
+                        android:id="@+id/food"
                         android:layout_width="174dp"
                         android:layout_height="wrap_content"
                         android:text="Yes" />
@@ -237,6 +243,7 @@
                         android:text="CLEANING:" />
 
                     <TextView
+                        android:id="@+id/cleaning"
                         android:layout_width="174dp"
                         android:layout_height="wrap_content"
                         android:text="No" />

@@ -51,7 +51,7 @@ public class  Booking_Adapter extends RecyclerView.Adapter<Booking_Adapter.ViewH
         Log.d("bookingDebug", String.valueOf(booking));
         holder.venueName.setText(bookingModelList.get(position).getName());
         holder.cost.setText(bookingModelList.get(position).getCost());
-        holder.eventTitle.setText(bookingModelList.get(position).getTitle());
+        holder.eventTitle.setText(bookingModelList.get(position).getVenueName());
         holder.slot.setText(bookingModelList.get(position).getSlot());
 
         try {

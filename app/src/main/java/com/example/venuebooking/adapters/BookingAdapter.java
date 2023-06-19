@@ -50,7 +50,7 @@ public class  BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHol
     public void onBindViewHolder(@NonNull BookingAdapter.ViewHolder holder, int position) {
         BookingModel booking = bookingModelList.get(position);
         Log.d("bookingDebug", String.valueOf(booking));
-        holder.venueName.setText(bookingModelList.get(position).getVenueName());
+        holder.venueName.setText(bookingModelList.get(position).getName());
         holder.cost.setText(bookingModelList.get(position).getCost());
         holder.eventTitle.setText(bookingModelList.get(position).getTitle());
         holder.slot.setText(bookingModelList.get(position).getSlot());
@@ -87,8 +87,30 @@ public class  BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHol
 
 
         holder.itemView.setOnClickListener(view -> {
-
+            boolean foodstatus,paymentstatus,cleaingstatus;
+            foodstatus=booking.isFood();
+            paymentstatus=booking.isPayment();
+            cleaingstatus=booking.isCleaning();
             Intent intent = new Intent(view.getContext(), BookingDescription.class);
+            intent.putExtra("eventtitle",booking.getTitle());
+            intent.putExtra("cost",booking.getCost());
+            intent.putExtra("uid",booking.getUserId());
+            intent.putExtra("name",booking.getName());
+            intent.putExtra("count",booking.getUserCnt());
+            if(cleaingstatus)
+            intent.putExtra("cleaing","True");
+            else
+                intent.putExtra("cleaing","False");
+            intent.putExtra("slot",booking.getSlot());
+            if(foodstatus)
+            intent.putExtra("food","True");
+            else
+                intent.putExtra("food","False");
+            if(paymentstatus)
+            intent.putExtra("payment","Payment Completed");
+            else
+                intent.putExtra("payment","Click on the Pay button ");
+            intent.putExtra("venuename",booking.getVenueName());
             view.getContext().startActivity(intent);
         });
     }
