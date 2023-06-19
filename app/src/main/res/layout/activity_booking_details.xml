@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".ui.BookingDetails"
     >
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         android:gravity="center_vertical"
         android:background="@color/lightPurple">
 
@@ -19,11 +21,11 @@
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/backbtnstyle"
             android:drawableStart="@drawable/baseline_keyboard_backspace_24"
-            android:onClick="goBack"
+            android:onClick="backButton"
             android:padding="12dp"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,122 +35,135 @@
         <TextView
 
             android:layout_width="261dp"
-            android:layout_height="51dp"
+            android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat"
-            android:text="@string/select_date"
+            android:text="Event Details"
             android:textColor="@color/white"
-            android:textSize="40sp"
+            android:textSize="35sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.521"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/back_btn"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.517"
+            app:layout_constraintVertical_bias="0.7"
             tools:ignore="TextSizeCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-<!--    <View-->
-<!--        android:id="@+id/view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="94dp"-->
 
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_marginStart="0dp"-->
-<!--        android:layout_marginLeft="0dp"-->
-<!--        android:layout_marginTop="0dp"-->
-<!--        android:layout_marginEnd="0dp"-->
-<!--        android:layout_marginRight="0dp"-->
-<!--        android:layout_marginBottom="0dp"-->
-<!--        android:background="@color/lightPurple" />-->
-
-
-
-<!--    <TextView-->
-<!--        android:id="@+id/textView11"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignBottom="@+id/view"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_marginTop="0dp"-->
-<!--        android:layout_marginBottom="0dp"-->
-<!--        android:fontFamily="@font/montserrat_medium"-->
-<!--        android:gravity="center"-->
-<!--        android:text="Enter the Details"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="35dp" />-->
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="519dp"
-        android:layout_below="@+id/view"
-        android:layout_alignParentBottom="true"
+        android:layout_height="match_parent"
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="112dp"
+
         android:gravity="fill"
+
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/view"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/dateborder"
-            android:drawableStart="@drawable/baseline_calendar_today_24"
-            android:drawablePadding="8dp"
-            android:hint="Date"
-            android:importantForAutofill="no"
-            android:padding="8dp"
-            android:textSize="22dp"
-            tools:ignore="TextContrastCheck" />
-
-        <TextView
-            android:id="@+id/person"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/view"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/dateborder"
-            android:drawableStart="@drawable/baseline_person_24"
-            android:drawablePadding="8dp"
-            android:hint="person"
-            android:importantForAutofill="no"
-            android:padding="8dp"
-            android:textSize="22dp"
-            tools:ignore="TextContrastCheck" />
-
-
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="20dp"
             app:boxStrokeColor="@color/lightPurple"
             app:hintTextAppearance="@style/CustomHintTextAppearance">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/title"
+                android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_below="@+id/view"
-
-                android:drawableStart="@drawable/baseline_title_24"
+                android:drawableStart="@drawable/baseline_calendar_today_24"
                 android:drawablePadding="8dp"
-                android:hint="Title"
+                android:enabled="false"
+                android:hint="Date"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:padding="8dp"
-                android:textSize="22dp" />
+                android:textSize="20dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            app:boxStrokeColor="@color/lightPurple"
+            app:hintTextAppearance="@style/CustomHintTextAppearance">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/view"
+                android:drawableStart="@drawable/baseline_person_24"
+                android:drawablePadding="8dp"
+                android:hint="Name"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:textSize="20dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            app:boxStrokeColor="@color/lightPurple"
+            app:hintTextAppearance="@style/CustomHintTextAppearance">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneNo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/view"
+                android:drawableStart="@drawable/ic_baseline_phone_24"
+                android:drawablePadding="8dp"
+                android:hint="Phone number"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:textSize="20dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            app:boxStrokeColor="@color/lightPurple"
+            app:hintTextAppearance="@style/CustomHintTextAppearance">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/event_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+
+                android:layout_below="@+id/view"
+                android:drawableStart="@drawable/baseline_title_24"
+                android:drawablePadding="8dp"
+                android:hint="Event name"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:textSize="20dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -156,14 +171,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="20dp"
             app:boxStrokeColor="@color/lightPurple"
             app:hintTextAppearance="@style/CustomHintTextAppearance">
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/estimate_Conut"
+                android:id="@+id/count"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
@@ -173,83 +188,71 @@
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:padding="8dp"
-                android:textSize="22dp"
+                android:textSize="20dp"
                 tools:ignore="TextContrastCheck" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+
+        <Spinner
+            android:id="@+id/spinner"
+            style="@style/Widget.AppCompat.Spinner.DropDown"
+            android:textSize="20dp"
+        android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            app:boxStrokeColor="@color/lightPurple"
-            app:hintTextAppearance="@style/CustomHintTextAppearance">
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/time_slot"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:drawableStart="@drawable/baseline_access_time_24"
-                android:drawablePadding="8dp"
-                android:hint="Time Slot"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:padding="8dp"
-                android:textSize="22dp"
-                tools:ignore="TextContrastCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
-            android:id="@+id/myCheckbox"
+            android:id="@+id/food"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
+
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="20dp"
             android:fontFamily="@font/poppins_regular"
             android:text="Food required ?"
             android:textColor="@color/darkPurple"
-            android:textSize="22dp" />
+            android:textSize="20dp" />
 
         <CheckBox
-            android:id="@+id/myCheckbox2"
+            android:id="@+id/cleaning"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
+
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="20dp"
             android:fontFamily="@font/poppins_regular"
             android:text="Cleaning required ?"
             android:textColor="@color/darkPurple"
-            android:textSize="22dp" />
+            android:textSize="20dp" />
+
+        <Button
+
+            android:id="@+id/booking_btn"
+            android:layout_width="274dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_back_conditional"
+            android:fontFamily="@font/poppins_regular"
+            android:onClick="request"
+            android:text="Request"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
 
     </LinearLayout>
 
-    <Button
-
-        android:id="@+id/register_btn"
-        android:layout_width="274dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="61dp"
-        android:layout_marginEnd="78dp"
-        android:layout_marginBottom="46dp"
-        android:background="@drawable/btnshape"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Request"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        tools:ignore="DuplicateSpeakableTextCheck" />
 
 
-</RelativeLayout>
+
+
+</LinearLayout>

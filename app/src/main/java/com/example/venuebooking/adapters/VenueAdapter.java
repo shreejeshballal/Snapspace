@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,14 +19,14 @@ import com.example.venuebooking.ui.VenueDescription;
 
 import java.util.List;
 
-public class VenueAdpaters extends RecyclerView.Adapter<VenueAdpaters.ViewHolder> {
+public class VenueAdapter extends RecyclerView.Adapter<VenueAdapter.ViewHolder> {
     private Context context;
     private List<VenueModel> venueModelList;
     private RecyclerView recyclerView;
 
-    public VenueAdpaters(Context context, List<VenueModel> venueListList,RecyclerView recyclerView) {
+    public VenueAdapter(Context context, List<VenueModel> venueList, RecyclerView recyclerView) {
         this.context = context;
-        this.venueModelList = venueListList;
+        this.venueModelList = venueList;
         this.recyclerView = recyclerView;
     }
 
@@ -74,5 +73,9 @@ public class VenueAdpaters extends RecyclerView.Adapter<VenueAdpaters.ViewHolder
             venue_img = itemView.findViewById(R.id.venue_img);
             venue_name = itemView.findViewById(R.id.venue_name);
         }
+    }
+    public void setData(List<VenueModel> newDataList) {
+        venueModelList = newDataList;
+        notifyDataSetChanged();
     }
 }

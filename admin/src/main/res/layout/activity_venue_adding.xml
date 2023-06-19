@@ -85,7 +85,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         app:boxStrokeColor="@color/lightpurple"
-        app:hintTextAppearance="@style/CustomHintTextAppearance">
+       >
 
 
     <com.google.android.material.textfield.TextInputEditText
@@ -110,7 +110,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         app:boxStrokeColor="@color/lightpurple"
-        app:hintTextAppearance="@style/CustomHintTextAppearance">
+       >
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/desc"
         android:layout_width="match_parent"

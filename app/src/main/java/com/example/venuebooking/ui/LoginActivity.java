@@ -19,9 +19,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+    public static String fb_user_id;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     TextView not_registered,forgot_password;
     Button login;
     TextInputEditText editEmail,editPassword;
@@ -47,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email, password;
+               String email, password;
                 email = String.valueOf(editEmail.getText());
                 password = String.valueOf(editPassword.getText());
                 if (TextUtils.isEmpty(email)) {
@@ -63,16 +65,19 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    Intent intent = new Intent(LoginActivity.this, BottomNavigator.class);
-                                    startActivity(intent);
-                                    Toast.makeText(LoginActivity.this, "Login " +
-                                                    "successful",
-                                            Toast.LENGTH_SHORT).show();
-                                    editEmail.setText("");
-                                    editPassword.setText("");
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    if (user != null) {
+                                        fb_user_id = user.getUid();
+                                        Intent intent = new Intent(LoginActivity.this, BottomNavigator.class);
+                                        startActivity(intent);
+                                        Toast.makeText(LoginActivity.this, "Login " +
+                                                        "successful",
+                                                Toast.LENGTH_SHORT).show();
 
+                                        editEmail.setText("");
+                                        editPassword.setText("");
 
+                                    }
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     try {
@@ -86,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             }
                         });
+             
             }
         });
 
@@ -158,6 +164,36 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+    /*public void onBackPressed() {
+
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(LoginActivity.this);
+        View logoutModal = getLayoutInflater().inflate(R.layout.logout_modal, null);
+        builder.setView(logoutModal);
+
+        Button logoutButton = logoutModal.findViewById(R.id.logout_button);
+        Button cancelButton = logoutModal.findViewById(R.id.cancel_button);
+
+        androidx.appcompat.app.AlertDialog dialog = builder.create();
+        dialog.show();
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mAuth.signOut();
+
+                finish();
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+    }*/
 
     }
 

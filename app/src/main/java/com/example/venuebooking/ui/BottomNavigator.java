@@ -8,6 +8,8 @@ import com.example.venuebooking.fragments.BookingFragment;
 import com.example.venuebooking.fragments.ContactFragment;
 import com.example.venuebooking.fragments.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +21,7 @@ import android.widget.FrameLayout;
 public class BottomNavigator extends AppCompatActivity {
     FrameLayout frameLayout;
     BottomNavigationView bottomNavigationView;
-
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +58,9 @@ public class BottomNavigator extends AppCompatActivity {
                         logoutButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                // Perform logout action
+
+                                mAuth.signOut();
+
                                 finish();
                             }
                         });
@@ -77,24 +81,35 @@ public class BottomNavigator extends AppCompatActivity {
             }
         });
     }
-
-    public void logout(View view) {
+    @Override
+    public void onBackPressed() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(BottomNavigator.this);
-        builder.setTitle("Logout");
-        builder.setMessage("Are you sure you want to logout ?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        View logoutModal = getLayoutInflater().inflate(R.layout.logout_modal, null);
+        builder.setView(logoutModal);
+
+        Button logoutButton = logoutModal.findViewById(R.id.logout_button);
+        Button cancelButton = logoutModal.findViewById(R.id.cancel_button);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(View v) {
+
+                mAuth.signOut();
+
                 finish();
             }
-
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
+
     }
 }

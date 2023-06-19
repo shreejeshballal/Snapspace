@@ -31,6 +31,7 @@ public class VenueDescription extends AppCompatActivity {
          name = intent.getStringExtra("venue_name");
          id = intent.getStringExtra("venue_id");
          desc = intent.getStringExtra("venue_desc");
+
          image = intent.getStringExtra("venue_img");
         //Setting the content of the views as the received data
         venue_name.setText(name);
@@ -44,15 +45,15 @@ public class VenueDescription extends AppCompatActivity {
     //Function to proceed to the data and slot picking
     public void bookNow(View view) {
 
-
-
-
         Intent intent = new Intent(this, DateSlotPicker.class);
         intent.putExtra("venue_id",id);
+        intent.putExtra("venue_name",name);
+
         startActivity(intent);
+
     }
 
-    public void goBack(View view) {
+    public void goBackRecyler(View view) {
         finish();
     }
 }

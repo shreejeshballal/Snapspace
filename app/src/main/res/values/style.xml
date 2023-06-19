@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="CustomHintTextAppearance" parent="TextAppearance.Design.Hint">
         <item name="android:textColor">@color/lightPurple</item>
     </style>

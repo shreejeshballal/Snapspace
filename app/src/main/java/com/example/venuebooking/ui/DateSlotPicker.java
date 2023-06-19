@@ -3,6 +3,7 @@ package com.example.venuebooking.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,16 +25,18 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class DateSlotPicker extends AppCompatActivity {
-    String venue_id,date,date_id;
+    String venue_id,date,date_id,venue_name;
     DatePicker datePicker;
 
 
+    @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,14 @@ public class DateSlotPicker extends AppCompatActivity {
         Intent intent = getIntent();
         venue_id = intent.getStringExtra("venue_id");
         datePicker =findViewById(R.id.date_picker);
+        venue_name = intent.getStringExtra("venue_name");
+
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+        date=String.format("%2d/%d/%04d", dayOfMonth, month + 1, year);
+        datePicker.setMinDate(calendar.getTimeInMillis());
         datePicker.init(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(),
                 new DatePicker.OnDateChangedListener() {
                     @Override
@@ -71,19 +82,20 @@ public class DateSlotPicker extends AppCompatActivity {
                                     date_id = document.getId();
                                 }
 
-                                Toast.makeText(DateSlotPicker.this, "Proceeding...", Toast.LENGTH_SHORT).show();
+                                Log.d("DatePicker","Date exists. Proceeding to booking details");
                                 Intent intent = new Intent(DateSlotPicker.this, BookingDetails.class);
                                 intent.putExtra("id",venue_id);
                                 intent.putExtra("date",date);
                                 intent.putExtra("date_id",date_id);
+                                intent.putExtra("venue_name",venue_name);
                                 startActivity(intent);
+
 
 
                             } else {
 
                                 if(date!=null) {
                                     createDatecollect();
-                                    Toast.makeText(DateSlotPicker.this, "Setting up the date...", Toast.LENGTH_SHORT).show();
                                 }
                                 else {
                                     Toast.makeText(DateSlotPicker.this, "Select the date again!", Toast.LENGTH_SHORT).show();
@@ -93,7 +105,7 @@ public class DateSlotPicker extends AppCompatActivity {
                             }
                         } else {
                             // An error occurred while retrieving the documents
-                            Toast.makeText(DateSlotPicker.this, "Error", Toast.LENGTH_SHORT).show();
+                            Log.e("DatePicker","Error retrieving");
 
                         }
                     }
@@ -108,25 +120,25 @@ public class DateSlotPicker extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference collectionRef = db.collection("venues");
         String documentId = venue_id;
-        String subcollectionName = "date";
 
 
         DocumentReference documentRef = collectionRef.document(documentId);
 
 // Create the subcollection
+        String subcollectionName = "date";
         CollectionReference subcollectionRef = documentRef.collection(subcollectionName);
 
 // Add a document to the subcollection
         Map<String, Object> data = new HashMap<>();
         data.put("date", date);
-        data.put("slots", Collections.singletonList(null));
+        data.put("slots", new ArrayList<>());
         subcollectionRef.add(data)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         // Document added successfully
                         String date_id = documentReference.getId();
-                        Toast.makeText(DateSlotPicker.this, "Added the date", Toast.LENGTH_SHORT).show();
+                        Log.i("DatePicker","Added date to firebase");
                         Intent intent = new Intent(DateSlotPicker.this, BookingDetails.class);
                         intent.putExtra("id",venue_id);
                         intent.putExtra("date",date);
@@ -139,7 +151,7 @@ public class DateSlotPicker extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         // Error occurred while adding the document
-                        Log.w("TAG", "Error adding document", e);
+                        Log.e("TAG", "Error adding document", e);
                         Toast.makeText(DateSlotPicker.this, "Error! Try again.", Toast.LENGTH_SHORT).show();
 
                     }
