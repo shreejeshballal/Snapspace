@@ -17,7 +17,7 @@ import com.example.admin.R;
 
 import java.util.List;
 
-public class VenueAdpaters extends RecyclerView.Adapter<VenueAdpaters.ViewHolder> {
+public class  VenueAdpaters extends RecyclerView.Adapter<VenueAdpaters.ViewHolder> {
     private Context context;
     private List<VenueModel> venueModelList;
     private RecyclerView recyclerView;

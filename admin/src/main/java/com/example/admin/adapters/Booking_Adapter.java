@@ -1,5 +1,4 @@
-package com.example.venuebooking.adapters;
-
+package com.example.admin.adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -13,9 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.venuebooking.R;
-import com.example.venuebooking.models.BookingModel;
-import com.example.venuebooking.ui.BookingDescription;
+import com.example.admin.Models.BookingModel;
+import com.example.admin.R;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,34 +22,34 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class  BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHolder> {
+public class  Booking_Adapter extends RecyclerView.Adapter<Booking_Adapter.ViewHolder> {
 
     private  List<BookingModel> bookingModelList;
     Context context;
     private RecyclerView recyclerView;
 
-    public BookingAdapter(Context context, List<BookingModel> bookingModelList,RecyclerView recyclerView) {
+    public Booking_Adapter(Context context, List<BookingModel> bookingModelList,RecyclerView recyclerView) {
         Log.d("bookingDebug", "Constructor inside");
         this.bookingModelList = bookingModelList;
         this.context = context;
         this.recyclerView=recyclerView;
     }
 
-    
+
     @NonNull
-    @Override 
+    @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Log.d("bookingDebug", "Entered on create viewholder");
         View view= LayoutInflater.from(context).inflate(R.layout.booking_instance_layout,parent,false);
         return new ViewHolder(view);
-                                                     
+
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BookingAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Booking_Adapter.ViewHolder holder, int position) {
         BookingModel booking = bookingModelList.get(position);
         Log.d("bookingDebug", String.valueOf(booking));
-        holder.venueName.setText(bookingModelList.get(position).getVenueName());
+        holder.venueName.setText(bookingModelList.get(position).getName());
         holder.cost.setText(bookingModelList.get(position).getCost());
         holder.eventTitle.setText(bookingModelList.get(position).getTitle());
         holder.slot.setText(bookingModelList.get(position).getSlot());
@@ -86,11 +85,11 @@ public class  BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHol
         }
 
 
-        holder.itemView.setOnClickListener(view -> {
-
-            Intent intent = new Intent(view.getContext(), BookingDescription.class);
-            view.getContext().startActivity(intent);
-        });
+//        holder.itemView.setOnClickListener(view -> {
+//
+//            Intent intent = new Intent(view.getContext(), BookingDescription.class);
+//            view.getContext().startActivity(intent);
+//        });
     }
 
     @Override
@@ -122,5 +121,6 @@ public class  BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHol
         Log.d("bookingDebug", "Notify data set changed");
         bookingModelList = newDataList;
         notifyDataSetChanged();
-   }
+    }
 }
+

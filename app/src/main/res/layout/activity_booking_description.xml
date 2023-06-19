@@ -119,8 +119,8 @@
                         android:layout_height="wrap_content"
                         android:text="EVENT:"
                         />
+
                     <TextView
-                        android:layout_width="242dp"
                         android:layout_height="wrap_content"
                         android:text="Dev Host Valorant tournament by google" />
                 </LinearLayout>

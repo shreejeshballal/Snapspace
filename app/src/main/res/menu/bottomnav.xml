@@ -5,7 +5,7 @@
     <item android:title="Home"
         android:icon="@drawable/ic_baseline_home_24"
         android:id="@+id/home"/>
-    <item android:title="Register"
+    <item android:title="Booking"
         android:icon="@drawable/ic_register_svgrepo_com"
         android:id="@+id/register"/>
     <item android:title="Contact"

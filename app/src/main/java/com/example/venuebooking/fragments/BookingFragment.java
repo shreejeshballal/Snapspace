@@ -43,7 +43,7 @@ public class BookingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_bookings, container, false);
         bookingRecyler = view.findViewById(R.id.booking_recycler);
         bookingRecyler.setLayoutManager(new LinearLayoutManager(requireContext()));
-        bookingAdapter = new BookingAdapter(requireContext(),bookingModelList);
+        bookingAdapter = new BookingAdapter(requireContext(),bookingModelList,bookingRecyler);
         bookingRecyler.setAdapter(bookingAdapter);
 
 
@@ -55,7 +55,7 @@ public class BookingFragment extends Fragment {
         db.collection("bookings")
                 .whereEqualTo("userId", LoginActivity.fb_user_id)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    
+
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value,
                                         @Nullable FirebaseFirestoreException e) {
@@ -99,6 +99,6 @@ public class BookingFragment extends Fragment {
                         bookingAdapter.setData(newBookingList);
                     }
                 });
-        return inflater.inflate(R.layout.fragment_bookings, container, false);
+        return view;
     }
 }
