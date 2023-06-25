@@ -10,9 +10,7 @@
         android:id="@+id/reservation"/>
 
 
-    <item android:title="Payments"
-        android:icon="@drawable/rupee_2_svgrepo_com"
-        android:id="@+id/payment"/>
+    
     <item android:title="Exit"
         android:icon="@drawable/baseline_exit_to_app_24"
         android:id="@+id/exit"/>

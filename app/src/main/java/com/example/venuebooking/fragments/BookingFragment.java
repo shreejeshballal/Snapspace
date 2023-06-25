@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.venuebooking.R;
 import com.example.venuebooking.adapters.BookingAdapter;
@@ -35,8 +34,8 @@ public class BookingFragment extends Fragment {
     ArrayList<BookingModel> bookingModelList = new ArrayList<>();
   RecyclerView bookingRecyler;
     BookingAdapter bookingAdapter;
-    //shashank
-    String documentId;
+
+
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -66,8 +65,8 @@ public class BookingFragment extends Fragment {
                         List<BookingModel> newBookingList = new ArrayList<>();
                         for (DocumentSnapshot document : Objects.requireNonNull(value).getDocuments()) {
 
-                            //shashank
-                            //String documentId = document.getId();
+
+                            String documentId = document.getId();
                             String name = document.getString("name");
                             String cost = document.getString("cost");
                             String phone = document.getString("phone");
@@ -80,22 +79,12 @@ public class BookingFragment extends Fragment {
                             boolean cleaning = Boolean.TRUE.equals(document.getBoolean("cleaning"));
                             boolean food = Boolean.TRUE.equals(document.getBoolean("food"));
                             boolean payment = Boolean.TRUE.equals(document.getBoolean("payment"));
-                            Toast.makeText(getActivity(),name,Toast.LENGTH_SHORT).show();
                             boolean status = Boolean.TRUE.equals(document.getBoolean("status"));
                             String venueName = document.getString("venueName");
-
-                            BookingModel bookingModel = new BookingModel(name,cost,date,slot,title,userId,userCnt,venueId,cleaning,food,payment,status,venueName,phone);
+                            String dateId = document.getString("dateId");
+                            BookingModel bookingModel = new BookingModel(name,cost,date,slot,title,userId,userCnt,venueId,cleaning,food,payment,status,venueName,phone,dateId,documentId);
                             newBookingList.add(bookingModel);
-                            Log.d("bookingDebug", "Set data method reached"+bookingModel);
-                            Log.d("bookingDebug", "list address"+newBookingList);
-
-
                         }
-                        Log.d("bookingDebug", "list address"+newBookingList);
-
-                        Toast.makeText(getActivity(),String.valueOf(newBookingList.size()),Toast.LENGTH_SHORT).show();
-                        Log.d("bookingDebug", "Set data method reached");
-
                         bookingAdapter.setData(newBookingList);
                     }
                 });

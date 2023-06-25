@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="15dp"
+    android:layout_marginHorizontal="15dp"
+    android:layout_marginVertical="8dp"
     app:cardCornerRadius="20dp"
     android:elevation="10dp">
 
@@ -27,7 +28,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="left"
+
                 android:text="@string/nethravati_auditorium"
+                android:textAllCaps="true"
                 android:textColor="#484848"
                 android:textSize="20sp"
                 tools:ignore="RtlHardcoded" />
@@ -45,9 +48,9 @@
                 tools:ignore="HardcodedText" />
 
             <LinearLayout
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
@@ -61,7 +64,7 @@
                     android:text="DevHost Valorant tournament in mangalore stadium"
                     android:textAlignment="textStart"
                     android:textColor="#4F4F4F"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     tools:ignore="HardcodedText,RtlSymmetry" />
 
                 <TextView
@@ -69,11 +72,11 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textColor="#4F4F4F"
+                    android:fontFamily="@font/montserrat_medium"
                     android:gravity="center"
                     android:text="₹5000"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:textSize="20sp"
+                    android:textColor="#000"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText" />
             </LinearLayout>
         </LinearLayout>
@@ -88,6 +91,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:textAllCaps="true"
                 android:id="@+id/bookedDateMonth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,7 +99,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center_horizontal"
                 android:text="AUG"
-                android:textColor="#dedede"
+                android:textColor="#ffffff"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText" />
 
@@ -115,11 +119,11 @@
                 android:id="@+id/bookedDateYear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-5dp"
+                android:layout_marginTop="-10dp"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center_horizontal"
                 android:text="2023"
-                android:textColor="#dedede"
+                android:textColor="#ffffff"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText" />
 

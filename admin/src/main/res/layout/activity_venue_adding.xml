@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Venue_Adding">
+    tools:context=".ui.Venue_Adding">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="center_vertical"
-        android:background="@color/lightpurple">
+        android:background="@color/lightPurple">
 
         <!--        <Button-->
 <!--            android:id="@+id/back_btn"-->
@@ -84,7 +84,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        app:boxStrokeColor="@color/lightpurple"
+        app:boxStrokeColor="@color/lightPurple"
        >
 
 
@@ -109,7 +109,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        app:boxStrokeColor="@color/lightpurple"
+        app:boxStrokeColor="@color/lightPurple"
        >
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/desc"

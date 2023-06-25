@@ -87,7 +87,7 @@ public class DateSlotPicker extends AppCompatActivity {
                                 intent.putExtra("id",venue_id);
                                 intent.putExtra("date",date);
                                 intent.putExtra("date_id",date_id);
-                                intent.putExtra("venue_name",venue_name);
+                                intent.putExtra("venueName",venue_name);
                                 startActivity(intent);
 
 
@@ -137,12 +137,15 @@ public class DateSlotPicker extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         // Document added successfully
+
                         String date_id = documentReference.getId();
                         Log.i("DatePicker","Added date to firebase");
                         Intent intent = new Intent(DateSlotPicker.this, BookingDetails.class);
                         intent.putExtra("id",venue_id);
                         intent.putExtra("date",date);
+                        Log.d("venueName",venue_name);
                         intent.putExtra("date_id",date_id);
+                        intent.putExtra("venueName",venue_name);
                         startActivity(intent);
 
                     }

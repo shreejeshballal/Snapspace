@@ -69,7 +69,6 @@ public class VenueAdapter extends RecyclerView.Adapter<VenueAdapter.ViewHolder> 
         TextView venue_name;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             venue_img = itemView.findViewById(R.id.venue_img);
             venue_name = itemView.findViewById(R.id.venue_name);
         }

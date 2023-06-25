@@ -49,11 +49,12 @@ public class  BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHol
     @Override
     public void onBindViewHolder(@NonNull BookingAdapter.ViewHolder holder, int position) {
         BookingModel booking = bookingModelList.get(position);
-        Log.d("bookingDebug", String.valueOf(booking));
+        String venueCost = "₹"+bookingModelList.get(position).getCost();
+        String venueSlot =bookingModelList.get(position).getSlot()+" IST";
         holder.venueName.setText(bookingModelList.get(position).getName());
-        holder.cost.setText(bookingModelList.get(position).getCost());
+        holder.cost.setText(venueCost);
         holder.eventTitle.setText(bookingModelList.get(position).getTitle());
-        holder.slot.setText(bookingModelList.get(position).getSlot());
+        holder.slot.setText(venueSlot);
 
         try {
             SimpleDateFormat inputFormat = new SimpleDateFormat("d/M/yyyy");
@@ -77,40 +78,61 @@ public class  BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHol
             e.printStackTrace();
         }
         boolean payment = booking.isPayment();
-        if(payment)
+        boolean status = booking.isStatus();
+        if(status && payment)
         {
-            holder.colorLayout.setBackgroundResource(R.drawable.booking_purple_bg);
-        }else {
+            holder.colorLayout.setBackgroundResource(R.drawable.booking_green_bg);
+        } else if(!status)
+        {
             holder.colorLayout.setBackgroundResource(R.drawable.booking_red_bg);
-
+        }
+        else {
+            holder.colorLayout.setBackgroundResource(R.drawable.booking_purple_bg);
         }
 
 
         holder.itemView.setOnClickListener(view -> {
-            boolean foodstatus,paymentstatus,cleaingstatus;
+            Intent intent = new Intent(view.getContext(), BookingDescription.class);
+
+            boolean foodstatus,paymentstatus,cleaingstatus,status1;
             foodstatus=booking.isFood();
+            status1 = booking.isStatus();
+            if(status1)
+            {
+
+                intent.putExtra("status1",true);
+            }
+            else
+            {
+                intent.putExtra("status1",false);
+            }
             paymentstatus=booking.isPayment();
             cleaingstatus=booking.isCleaning();
-            Intent intent = new Intent(view.getContext(), BookingDescription.class);
             intent.putExtra("eventtitle",booking.getTitle());
             intent.putExtra("cost",booking.getCost());
             intent.putExtra("uid",booking.getUserId());
             intent.putExtra("name",booking.getName());
+            intent.putExtra("venueId",booking.getVenueId()) ;
+            intent.putExtra("dateId",booking.getDateId());
+            intent.putExtra("documentId",booking.getDocumentId());
             intent.putExtra("count",booking.getUserCnt());
+            intent.putExtra("venueName",booking.getVenueName());
+
             if(cleaingstatus)
-            intent.putExtra("cleaing","True");
+            intent.putExtra("cleaning","Yes");
             else
-                intent.putExtra("cleaing","False");
+                intent.putExtra("cleaning","No");
             intent.putExtra("slot",booking.getSlot());
             if(foodstatus)
-            intent.putExtra("food","True");
+            intent.putExtra("food","Yes");
             else
-                intent.putExtra("food","False");
+                intent.putExtra("food","No");
+
             if(paymentstatus)
-            intent.putExtra("payment","Payment Completed");
+                intent.putExtra("payment","Payment Successful");
             else
-                intent.putExtra("payment","Click on the Pay button ");
-            intent.putExtra("venuename",booking.getVenueName());
+                intent.putExtra("payment","Payment Remaining ");
+
             view.getContext().startActivity(intent);
         });
     }

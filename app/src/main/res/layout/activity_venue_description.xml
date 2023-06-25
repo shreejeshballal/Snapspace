@@ -31,23 +31,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="335dp">
 
-                <Button
-                    android:id="@+id/back_btn"
-                    android:layout_width="56dp"
-                    android:layout_height="46dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="28dp"
-                    android:background="@drawable/backbtnstyle"
-                    android:drawableStart="@drawable/baseline_keyboard_backspace_24"
+                <TextView
+                    android:id="@+id/back"
+                    android:layout_width="60dp"
+                    android:layout_height="42dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/main_back_btn_white"
+                    android:elevation="8dp"
                     android:onClick="goBackRecyler"
-                    android:padding="14dp"
 
-                    android:textColor="@color/black"
+                    android:paddingEnd="20dp"
+                    app:drawableEndCompat="@drawable/back_arrow_black"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlSymmetry" />
                 <ImageView
                     android:id="@+id/venue_image"
                     android:layout_width="match_parent"

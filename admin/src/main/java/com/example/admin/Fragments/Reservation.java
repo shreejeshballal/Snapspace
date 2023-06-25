@@ -10,11 +10,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.admin.Models.BookingModel;
 import com.example.admin.R;
-import com.example.admin.adapters.Booking_Adapter;
+import com.example.admin.adapters.BookingAdaptor;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,7 +31,7 @@ public class Reservation extends Fragment {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     ArrayList<BookingModel> bookingModelList = new ArrayList<>();
     RecyclerView bookingRecyler;
-    Booking_Adapter bookingAdapter;
+    BookingAdaptor bookingAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,18 +40,23 @@ public class Reservation extends Fragment {
         View view = inflater.inflate(R.layout.fragment_reservation, container, false);
         bookingRecyler = view.findViewById(R.id.bookingrecycler);
         bookingRecyler.setLayoutManager(new LinearLayoutManager(requireContext()));
-        bookingAdapter = new Booking_Adapter(requireContext(),bookingModelList,bookingRecyler);
+        bookingAdapter = new BookingAdaptor(requireContext(),bookingModelList,bookingRecyler);
         bookingRecyler.setAdapter(bookingAdapter);
 
         db.collection("bookings")
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        List<BookingModel> newBookingList = new ArrayList<>();
-                        QuerySnapshot querySnapshot = task.getResult();
-                        if (querySnapshot != null) {
-                            for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            return;
+                        }
+                            List<BookingModel> newBookingList = new ArrayList<>();
+
+                            for (DocumentSnapshot document : Objects.requireNonNull(value).getDocuments()) {
                                 // Retrieve data from the document
+                                String documentId = document.getId();
                                 String name = document.getString("name");
                                 String cost = document.getString("cost");
                                 String phone = document.getString("phone");
@@ -67,17 +71,15 @@ public class Reservation extends Fragment {
                                 boolean payment = Boolean.TRUE.equals(document.getBoolean("payment"));
                                 boolean status = Boolean.TRUE.equals(document.getBoolean("status"));
                                 String venueName = document.getString("venueName");
-
-                                BookingModel bookingModel = new BookingModel(name, cost, date, slot, title, userId, userCnt, venueId, cleaning, food, payment, status, venueName, phone);
+                                String dateId = document.getString("dateId");
+                                BookingModel bookingModel = new BookingModel(name,cost,date,slot,title,userId,userCnt,venueId,cleaning,food,payment,status,venueName,phone,dateId,documentId);
                                 newBookingList.add(bookingModel);
                             }
 
                             // Update the adapter with the new data
                             bookingAdapter.setData(newBookingList);
                         }
-                    } else {
-                        Log.d("bookingDebug", "Error getting documents: ", task.getException());
-                    }
+                    
                 });
 
 

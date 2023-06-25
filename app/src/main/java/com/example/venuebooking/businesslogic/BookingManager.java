@@ -39,9 +39,10 @@ public class BookingManager {
 
     }
 
-    public void bookSlots(String venueId,String slotToBeBooked,String name,String cost,String phone,String date,String title,String userId,String userCount,boolean cleaning,boolean food,String venueName) {
+    public void bookSlots(String venueId,String slotToBeBooked,String name,String cost,String phone,String date,String title,String userId,String userCount,boolean cleaning,boolean food,String venueName,String dateId) {
 
-        bookingDocumentRef.set(new BookingModel(name,cost,date,slotToBeBooked,title,userId,userCount,venueId,cleaning,food,false,false,venueName,phone)).addOnSuccessListener(new OnSuccessListener<Void>() {
+        String documentId = bookingDocumentRef.getId();
+        bookingDocumentRef.set(new BookingModel(name,cost,date,slotToBeBooked,title,userId,userCount,venueId,cleaning,food,false,false,venueName,phone,dateId,documentId)).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                                 showBookingStatus(context,"Booking successful!");

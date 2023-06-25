@@ -13,8 +13,10 @@ public class BookingModel {
     private boolean cleaning,food,payment,status;
     private String venueName;
     private String phone;
+    private String dateId;
+    private String documentId;
 
-    public BookingModel(String name, String cost, String date, String slot, String title, String userId, String userCnt, String venueId, boolean cleaning, boolean food, boolean payment, boolean status, String venueName, String phone) {
+    public BookingModel(String name, String cost, String date, String slot, String title, String userId, String userCnt, String venueId, boolean cleaning, boolean food, boolean payment, boolean status, String venueName, String phone,String dateId,String documentId) {
         this.name = name;
         this.cost = cost;
         this.date = date;
@@ -29,6 +31,8 @@ public class BookingModel {
         this.status = status;
         this.venueName = venueName;
         this.phone = phone;
+        this.dateId = dateId;
+        this.documentId = documentId;
     }
 
 
@@ -38,6 +42,13 @@ public class BookingModel {
     }
 
 
+    public String getDateId() {
+        return dateId;
+    }
+
+    public void setDateId(String dateId) {
+        this.dateId = dateId;
+    }
 
     public String getCost() {
         return cost;
@@ -151,5 +162,12 @@ public class BookingModel {
     public void setVenueName(String venueName) {
         this.venueName = venueName;
     }
-}
 
+    public String getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
+}

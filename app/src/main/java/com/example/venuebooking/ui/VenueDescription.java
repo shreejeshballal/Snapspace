@@ -50,6 +50,7 @@ public class VenueDescription extends AppCompatActivity {
         intent.putExtra("venue_name",name);
 
         startActivity(intent);
+        finish();
 
     }
 

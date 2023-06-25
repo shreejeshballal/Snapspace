@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.Admin_home">
+    tools:context=".Fragments.Venues">
 
     <LinearLayout
         android:orientation="vertical"
@@ -19,7 +19,7 @@
             android:fontFamily="@font/montserrat_semibold"
             android:iconifiedByDefault="false"
             android:text="Venue List"
-            android:textColor="@color/darkpurple"
+            android:textColor="@color/darkPurple"
             android:textSize="33dp">
         </TextView>
         <androidx.recyclerview.widget.RecyclerView

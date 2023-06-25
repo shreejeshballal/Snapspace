@@ -48,7 +48,10 @@ public class BookingDetails extends AppCompatActivity {
         venue_id = intent.getStringExtra("id");
         date = intent.getStringExtra("date");
         date_id = intent.getStringExtra("date_id");
-        venue_name = intent.getStringExtra("venue_name");
+        venue_name = intent.getStringExtra("venueName");
+
+
+
 
         //Mapping and configuring
         spinner = findViewById(R.id.spinner);
@@ -156,7 +159,7 @@ public class BookingDetails extends AppCompatActivity {
            cost = Integer.toString((Integer.parseInt(cost)+65*Integer.parseInt(usercount)));
         cost = Integer.toString((Integer.parseInt(cost)+Integer.parseInt(baseFee)));
 
-       bookingManager.bookSlots(venue_id,slot,name,cost,phone,date,title,fbuser,usercount,cleaning,food,venue_name);
+       bookingManager.bookSlots(venue_id,slot,name,cost,phone,date,title,fbuser,usercount,cleaning,food,venue_name,date_id);
         finish();
     }
 
