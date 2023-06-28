@@ -3,6 +3,7 @@ package com.example.venuebooking.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,7 +29,8 @@ public class BookingDescription extends AppCompatActivity implements PaymentResu
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     String venueId,dateId,documentId,Plainslot,realCost;
     Button payBtn;
-    TextView back, eventTitle,venueName,slot,payment,cost, userId, userName,count,food,cleaning;
+    TextView back, eventTitle,venueName,slot,payment,cost, userId, userName,count,food,cleaning,bookingId;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,8 @@ public class BookingDescription extends AppCompatActivity implements PaymentResu
         eventTitle =findViewById(R.id.bookingEventTitle);
         venueName=findViewById(R.id.bookingVenueName);
         slot=findViewById(R.id.bookingVenueSlot);
+        bookingId = findViewById(R.id.bookingId);
+        payment=findViewById(R.id.bookingPaymentStatus);
         payment=findViewById(R.id.bookingPaymentStatus);
         cost=findViewById(R.id.bookingEventCost);
         userId =findViewById(R.id.bookingUserId);
@@ -59,8 +63,7 @@ public class BookingDescription extends AppCompatActivity implements PaymentResu
         {
             payBtn.setEnabled(false);
             linearLayout.setBackgroundResource(R.drawable.booking_description_red_bg);
-        }
-         if(paymentBool){
+        }else if(paymentBool){
              payBtn.setEnabled(false);
 
          }
@@ -88,7 +91,7 @@ public class BookingDescription extends AppCompatActivity implements PaymentResu
         count.setText(intent.getStringExtra("count"));
         food.setText(intent.getStringExtra("food"));
         cleaning.setText(intent.getStringExtra("cleaning"));
-
+        bookingId.setText(documentId);
         back=findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
