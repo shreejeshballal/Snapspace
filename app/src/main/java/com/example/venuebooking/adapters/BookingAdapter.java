@@ -127,7 +127,7 @@ public class  BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHol
             intent.putExtra("food","Yes");
             else
                 intent.putExtra("food","No");
-
+               intent.putExtra("paymentBool",payment);
             if(paymentstatus)
                 intent.putExtra("payment","Payment Successful");
             else

@@ -24,9 +24,8 @@ public class BookingDescription extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     String venueId,dateId,documentId,Plainslot;
     TextView back, eventTitle,venueName,slot,payment,cost, userId, userName,count,food,cleaning;
-
     boolean status;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +41,7 @@ public class BookingDescription extends AppCompatActivity {
         food=findViewById(R.id.bookingFood);
         cleaning=findViewById(R.id.bookingCleaning);
 
-
         Intent intent=getIntent();
-
         boolean status;
 
         status = intent.getBooleanExtra("status1",false);
@@ -59,9 +56,7 @@ public class BookingDescription extends AppCompatActivity {
 
         }
         else       {
-
             acceptButton.setEnabled(false);
-
         }
 
         String slotInfo =  intent.getStringExtra("slot")+" IST";
@@ -69,9 +64,7 @@ public class BookingDescription extends AppCompatActivity {
         Plainslot = intent.getStringExtra("slot");
         venueId = intent.getStringExtra("venueId");
         dateId = intent.getStringExtra("dateId");
-
         documentId = intent.getStringExtra("documentId");
-
         eventTitle.setText(intent.getStringExtra("eventtitle"));
         venueName.setText(intent.getStringExtra("venueName"));
         slot.setText(slotInfo);
@@ -82,9 +75,6 @@ public class BookingDescription extends AppCompatActivity {
         count.setText(intent.getStringExtra("count"));
         food.setText(intent.getStringExtra("food"));
         cleaning.setText(intent.getStringExtra("cleaning"));
-
-
-
     }
                     
 
@@ -100,8 +90,6 @@ public class BookingDescription extends AppCompatActivity {
         DocumentReference mainDocRef = db.collection("venues").document(venueId);
         DocumentReference dateDocumentRef = mainDocRef.collection("date").document(dateId);
         DocumentReference bookingDocumentRef = db.collection("bookings").document(documentId);
-
-
         dateDocumentRef.update("slot", FieldValue.arrayRemove(Plainslot));
         bookingDocumentRef
                 .delete()
@@ -144,8 +132,5 @@ public class BookingDescription extends AppCompatActivity {
                     }
                 });
         acceptButton.setEnabled(false);
-
-
-
     }
 }

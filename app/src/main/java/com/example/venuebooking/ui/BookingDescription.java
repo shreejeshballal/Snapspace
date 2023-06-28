@@ -3,10 +3,12 @@ package com.example.venuebooking.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,14 +19,22 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.razorpay.Checkout;
+import com.razorpay.PaymentResultListener;
 
-public class BookingDescription extends AppCompatActivity {
+import org.json.JSONObject;
+
+public class BookingDescription extends AppCompatActivity implements PaymentResultListener {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    String venueId,dateId,documentId,Plainslot;
+    String venueId,dateId,documentId,Plainslot,realCost;
+    Button payBtn;
     TextView back, eventTitle,venueName,slot,payment,cost, userId, userName,count,food,cleaning;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent=getIntent();
+
+        Checkout.preload(getApplicationContext());
         setContentView(R.layout.booking_description_layout);
         eventTitle =findViewById(R.id.bookingEventTitle);
         venueName=findViewById(R.id.bookingVenueName);
@@ -36,44 +46,30 @@ public class BookingDescription extends AppCompatActivity {
         count=findViewById(R.id.bookingUserCount);
         food=findViewById(R.id.bookingFood);
         cleaning=findViewById(R.id.bookingCleaning);
-        Intent intent=getIntent();
+        payBtn = findViewById(R.id.bookingPayButton);
 
-         boolean status,paymentBool;
-
-         status = intent.getBooleanExtra("status1",false);
+        boolean status,paymentBool;
+        paymentBool = intent.getBooleanExtra("paymentBool",false);
+        status = intent.getBooleanExtra("status1",false);
         LinearLayout linearLayout;
         linearLayout = findViewById(R.id.booking_desc_main);
 
 
         if(!status)
         {
+            payBtn.setEnabled(false);
             linearLayout.setBackgroundResource(R.drawable.booking_description_red_bg);
-
         }
-       /* if(status && paymentBool)
-        {
-            Log.d("statusHello",String.valueOf(status));
-            Log.d("paymentBool",String.valueOf(status));
-            Log.d("chdck",String.valueOf(status));
+         if(paymentBool){
+             payBtn.setEnabled(false);
 
-            linearLayout.setBackgroundResource(R.drawable.booking_green_bg);
-        } else if(!status && !paymentBool)                              
-        {                                    Log.d("chdck",String.valueOf(status));
-
-            linearLayout.setBackgroundResource(R.drawable.booking_description_red_bg);
-        }                                                   
-        else if(status && !paymentBool){
-            Log.d("chdck",String.valueOf(status));
-            Log.d("chdck",String.valueOf(status));
-            Log.d("chdck",String.valueOf(status));
-
-            linearLayout.setBackgroundResource(R.drawable.booking_description_purple_bg);
-        }   */
+         }
 
 
+        
 
 
-
+        realCost = intent.getStringExtra("cost");
         String slotInfo =  intent.getStringExtra("slot")+" IST";
         String venueCost  = "₹ "+intent.getStringExtra("cost") ;
         Plainslot = intent.getStringExtra("slot");
@@ -103,8 +99,35 @@ public class BookingDescription extends AppCompatActivity {
     }
 
     public void payBooking(View view)  {
-                                  finish();  
+        PaymentNow(realCost);
+
     }
+
+    private void PaymentNow(String amount) {
+        Intent intent=getIntent();
+
+        final Activity activity = this;
+        Checkout checkout = new Checkout();
+        checkout.setKeyID("rzp_test_rrBDVz90iIzSrl");
+        checkout.setImage(R.mipmap.ic_launcher);
+        double finalAmount  = Float.parseFloat(amount)*100;
+        try{
+            JSONObject options = new JSONObject();
+            options.put("name",intent.getStringExtra("name"));
+            options.put("description",documentId);
+            options.put("theme.color","#7528B8");
+            options.put("currency","INR");
+            options.put("amount",finalAmount+"");
+            checkout.open(activity,options);
+        }  catch (Exception e)
+        {
+            Toast.makeText(this,"Error paying",Toast.LENGTH_SHORT).show();
+
+        }
+
+        
+    }
+
     public void cancelBooking(View view) {
         DocumentReference mainDocRef = db.collection("venues").document(venueId);
         DocumentReference dateDocumentRef = mainDocRef.collection("date").document(dateId);
@@ -129,6 +152,32 @@ public class BookingDescription extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
+
+    }
+
+    @Override
+    public void onPaymentSuccess(String s) {
+        DocumentReference bookingDocumentRef = db.collection("bookings").document(documentId);
+        bookingDocumentRef.update("payment",true).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(getApplicationContext(),"Payment Success",Toast.LENGTH_SHORT).show();
+            }
+        })     .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplicationContext(),"Please contact the admin",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        finish();
+    }
+
+    @Override
+    public void onPaymentError(int i, String s) {
+        Toast.makeText(getApplicationContext(),"Payment unsuccessful",Toast.LENGTH_SHORT).show();
+
 
     }
 }

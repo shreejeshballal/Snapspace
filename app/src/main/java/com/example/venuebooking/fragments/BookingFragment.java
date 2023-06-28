@@ -64,8 +64,6 @@ public class BookingFragment extends Fragment {
 
                         List<BookingModel> newBookingList = new ArrayList<>();
                         for (DocumentSnapshot document : Objects.requireNonNull(value).getDocuments()) {
-
-
                             String documentId = document.getId();
                             String name = document.getString("name");
                             String cost = document.getString("cost");
