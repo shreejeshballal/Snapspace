@@ -19,6 +19,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.admin.R;
@@ -33,7 +34,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Venue_Adding extends AppCompatActivity {
-Button back,selectphoto,uploadbtn;
+Button selectphoto,uploadbtn;
+TextView back;
 ImageView imageView;
  EditText name,desc;
     String title,discrption;

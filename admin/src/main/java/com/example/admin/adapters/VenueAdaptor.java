@@ -30,6 +30,8 @@ public class VenueAdaptor extends RecyclerView.Adapter<VenueAdaptor.ViewHolder> 
         void onItemClick(int position);
     }
 
+
+
     //method
     public void setOnclickListener(OnItemclickListen clicklisner){
         lisner=clicklisner;
@@ -40,6 +42,7 @@ public class VenueAdaptor extends RecyclerView.Adapter<VenueAdaptor.ViewHolder> 
         this.recyclerView = recyclerView;
 
     }
+
 
     @NonNull
     @Override

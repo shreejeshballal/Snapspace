@@ -29,22 +29,18 @@
 <!--            app:layout_constraintTop_toTopOf="parent"-->
 <!--            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />-->
 
-         <Button
-        android:id="@+id/back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/backbtnstyle"
-        android:drawableStart="@drawable/baseline_keyboard_backspace_24"
-        android:onClick="goBack"
-        android:padding="10dp"
-        android:text="back"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/back_btn"
+            android:layout_width="65dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/main_back_btn_white"
+            android:elevation="8dp"
+            android:paddingEnd="20dp"
+            app:drawableEndCompat="@drawable/back_arrow_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
 

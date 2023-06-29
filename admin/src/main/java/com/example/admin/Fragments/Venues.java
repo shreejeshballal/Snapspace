@@ -69,6 +69,8 @@ public class Venues extends Fragment {
                              @Override
                              public void onSuccess(Void unused) {
                                  Toast.makeText(getActivity(),"deleted",Toast.LENGTH_SHORT).show();
+                                 venueModelList.remove(position);
+                                 venueAdpaters.notifyDataSetChanged();
                              }
                          }).addOnFailureListener(new OnFailureListener() {
                              @Override
