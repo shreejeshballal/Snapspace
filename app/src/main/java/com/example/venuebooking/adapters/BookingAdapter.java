@@ -51,7 +51,7 @@ public class  BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHol
         BookingModel booking = bookingModelList.get(position);
         String venueCost = "₹"+bookingModelList.get(position).getCost();
         String venueSlot =bookingModelList.get(position).getSlot()+" IST";
-        holder.venueName.setText(bookingModelList.get(position).getName());
+        holder.venueName.setText(bookingModelList.get(position).getVenueName());
         holder.cost.setText(venueCost);
         holder.eventTitle.setText(bookingModelList.get(position).getTitle());
         holder.slot.setText(venueSlot);
@@ -124,10 +124,10 @@ public class  BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHol
                 intent.putExtra("cleaning","No");
             intent.putExtra("slot",booking.getSlot());
             if(foodstatus)
-            intent.putExtra("food","Yes");
+                intent.putExtra("food","Yes");
             else
                 intent.putExtra("food","No");
-               intent.putExtra("paymentBool",payment);
+            intent.putExtra("paymentBool",payment);
             if(paymentstatus)
                 intent.putExtra("payment","Payment Successful");
             else
