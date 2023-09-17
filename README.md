@@ -1,8 +1,5 @@
 # Snapspace - Your Campus Venue Booking Solution
 
-<p align="center">
-  <img src="snapspace-logo.png" alt="Snapspace Logo" width="200">
-</p>
 
 Snapspace is a powerful Android application that simplifies venue booking in colleges and universities. Whether you need to book an auditorium, seminar hall, or any other space on your campus, Snapspace has you covered.
 
