@@ -19,7 +19,6 @@ Snapspace is built using the following technologies:
 - Android Studio: The primary development environment for building Android applications.
 - Material UI: Provides a consistent and attractive design language.
 - Firebase: Offers real-time database and authentication services.
-- [Add more technologies as needed]
 
 ## Getting Started
 
