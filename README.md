@@ -49,3 +49,6 @@ To get started with Snapspace:
     <img src="https://github.com/sudeepnn/mad/blob/master/images/10.jpg" width="200" height="400">
     <img src="https://github.com/sudeepnn/mad/blob/master/images/11.jpg" width="200" height="400">
 </div>
+
+## Info
+Built with 💖 by Shreejesh J Ballal and Sudeep Naik
