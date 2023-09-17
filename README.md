@@ -28,7 +28,7 @@ To get started with Snapspace:
 3. Configure Firebase with your project.
 4. Build and run the app on your Android device or emulator.
 
-##Screenshots
+## Screenshots
 
 <div style="display: flex; justify-content: space-between; ">
     <img src="https://github.com/sudeepnn/mad/blob/master/images/1.jpg"  width="200" height="400">
