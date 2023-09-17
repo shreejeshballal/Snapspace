@@ -6,11 +6,17 @@ Snapspace is a powerful Android application that simplifies venue booking in col
 ## Features
 
 📅 **Slot Booking and Date Picker:** Easily select your preferred time slot and date for booking.
+
 📱 **Booking Administration App:** Manage your bookings efficiently with the dedicated admin app.
+
 💳 **Payment Integration:** Securely make payments for your bookings within the app.
+
 🔎 **Explore Venues:** Browse and discover available venues with ease.
+
 👑 **Admin Control:** Administrators can accept or reject bookings, add new venues, and remove outdated listings.
+
 🌐 **Responsive and Modern UI/UX:** Enjoy a seamless user experience with our responsive and visually appealing design.
+
 
 ## Technologies Used
 
